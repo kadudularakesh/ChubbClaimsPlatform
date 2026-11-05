@@ -1,0 +1,6 @@
+Add this to Program.cs after AddAuthorization():
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("ClaimantOnly", p => p.RequireRole("Claimant"));
+    options.AddPolicy("OfficerOnly", p => p.RequireRole("ClaimsOfficer"));
+});
